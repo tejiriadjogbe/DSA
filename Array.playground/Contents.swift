@@ -135,3 +135,23 @@ func getMaxElements(_ arr: [Int]) -> [Int] {
 }
 
 print(getMaxElements([1,1,1,3,3,2,2,2]))
+
+/*
+ Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is  k
+ */
+
+func getDuplicateDistance(_ arr: [Int], _ k: Int) -> Bool {
+    for i in 0..<arr.count-1 {
+        print("Step \(i)")
+        for j in i+1..<arr.count {
+            if arr[i] == arr[j], abs(i - j) == k {
+                print(i, j)
+                return true
+            }
+        }
+    }
+    
+    return false
+}
+
+print(getDuplicateDistance([1,2,3,1,2,3], 1))
